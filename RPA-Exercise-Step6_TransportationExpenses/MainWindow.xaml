@@ -1,0 +1,35 @@
+﻿<Window x:Class="TransportationExpenses.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TransportationExpenses"
+        mc:Ignorable="d"
+        Title="交通費精算（例外練習用）" Height="500" Width="800">
+    <Grid>
+        <Button x:Name="ButtonNewEntry" Content="新規登録" HorizontalAlignment="Left" Height="50" Margin="45,83,0,0" VerticalAlignment="Top" Width="200" Background="#FF007BFF" Foreground="White" BorderBrush="#FF003E7B" Click="btnNewEntry_Click"/>
+        <Label x:Name="lblTitle" Content="交通費精算（例外練習用）" HorizontalAlignment="Left" Margin="45,5,0,0" VerticalAlignment="Top" FontSize="28" FontWeight="Bold" Width="694"/>
+        <Button x:Name="ButtonClose" Content="アプリ終了" HorizontalAlignment="Left" Height="50" Margin="539,83,0,0" VerticalAlignment="Top" Width="200" Background="#FFDDDDDD" Foreground="Black" BorderBrush="#FF70707B" Click="btnClose_Click"/>
+
+        <DataGrid Name="DataGridExpenses" IsReadOnly="True" Margin="45,150,45,80" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="年月日" Binding="{Binding Date}" Width="70"/>
+                <DataGridTextColumn Header="経路" Binding="{Binding Route}" Width="190"/>
+                <DataGridTextColumn Header="種別" Binding="{Binding Categories}" Width="100"/>
+                <DataGridTextColumn Header="行先" Binding="{Binding Destination}" Width="190"/>
+                <DataGridTextColumn Header="金額" Binding="{Binding Expense}" Width="50">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Right" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="登録番号" Binding="{Binding RegNumber}" Width="80"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StatusBar VerticalAlignment="Bottom">
+            <StatusBarItem Name="StetusBarItem1">Item1</StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>
